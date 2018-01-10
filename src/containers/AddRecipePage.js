@@ -14,6 +14,10 @@ class addRecipePage extends Component {
     this.state = {message: ""}
   }
 
+  componentWillMount() {
+    this.props.addRow()
+  }
+  
   componentDidMount() {
       document.title = "Nouvelle recette";
     }

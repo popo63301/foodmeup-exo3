@@ -8,9 +8,13 @@ class ingredientItem extends Component {
           cost,
           allergenes } = this.props
 
-    let listAllergnesItem = allergenes ?
-        allergenes.reduce((elem, accum) => elem + ', ' + accum)
-        : ''
+    let listAllergnesItem;
+    if (allergenes) {
+      listAllergnesItem = allergenes.length > 0 ? allergenes.reduce((elem, accum) => elem + ', ' + accum)
+          : ''
+    } else {
+      listAllergnesItem = ''
+    }
     return (
       <div>{name} - {cost}€/g
       {listAllergnesItem  ? <p>allergène(s): {listAllergnesItem}</p> : ''}

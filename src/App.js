@@ -11,17 +11,19 @@ import { BrowserRouter, Route } from 'react-router-dom';
 let mock = {
   ingredients: {
     byId: {
-      'x3dsmm': {id: "x3dsmm", name: "concombre"},
-      'nfrecc': {id: "nfrecc", name: "tomate", listAllergnes:["toto", "bobo", "jojo"]}
+      'x3dsmm': {id: "x3dsmm", name: "concombre", cost: 0.2},
+      'nfrecc': {id: "nfrecc", name: "tomate", cost: 0.45, listAllergnes:["toto", "bobo", "jojo"]}
     },
     allIds: ['x3dsmm', 'nfrecc']
   },
   recipes: {
     byId: {
       'pm12xw': {id:'pm12xw', name: 'salade de concombre et de tomate',
+          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}]},
+      'jobz': {id:'jobz', name: 'salade de bananes',
           listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}]}
     },
-    allIds: ['pm12xw']
+    allIds: ['pm12xw', 'jobz']
   },
   pageRecipeItem: {
     byId: {
@@ -40,7 +42,7 @@ let store = createStore(appStore, mock)
 
 store.subscribe(() => {
   let store1 = store.getState()
-  console.log(store1.recipes.byId)
+  console.log(store1.ingredients.byId)
 
 });
 

@@ -15,3 +15,7 @@ export const getBoolValidityQuantityField = (state, props) => {
 export const getListRowsNewRecipe = (state, props) => {
   return state.pageRecipeItem.allIds.map((e) => state.pageRecipeItem.byId[e])
 }
+
+export const getListAllRecipes = (state, props) => {
+  return state.recipes.allIds.map((e) => state.recipes.byId[e])
+}

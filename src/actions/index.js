@@ -12,6 +12,8 @@ export const addNewIngredient = (ingr) => {
           cost: ingr.cost,
           listAllergnes: listAllergnes
           };
+          
+  console.log(newIngredient)
   return {type: 'ADD_NEW_INGREDIENT', newIngredient}
 }
 

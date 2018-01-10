@@ -14,7 +14,6 @@ class addIngredientPage extends Component {
   }
   componentDidMount() {
       document.title = "Nouvel ingrédient";
-      console.log(this.props.history)
     }
 
   componentWillUnmount() {
