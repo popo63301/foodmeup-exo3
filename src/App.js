@@ -19,13 +19,13 @@ let mock = {
   recipes: {
     byId: {
       'pm12xw': {id:'pm12xw', name: 'salade de concombre et de tomate',
-          listIngredients: [{id:'x3dsmm', isRecipe: false}, {id:'nfrecc', isRecipe: false}]}
+          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}]}
     },
     allIds: ['pm12xw']
   },
   pageRecipeItem: {
     byId: {
-      'tofol2': {id: 'tofol2' , isSelected: false, idIngOrRecp: 'x3dsmm', listAllergnes: ["bucate", "scolioz"]},
+      'tofol2': {id: 'tofol2' , isSelected: false, idIngOrRecp: 'x3dsmm'},
       'tofol3': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'},
       'tofol4': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'},
       'tofol5': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'}
@@ -37,14 +37,10 @@ let mock = {
 let store = createStore(appStore, mock)
 
 // console.log(store.getState())
-console.log(store.getState().pageRecipeItem.allIds)
-console.log(store.getState().pageRecipeItem.byId)
 
 store.subscribe(() => {
   let store1 = store.getState()
-
-  console.log(store1.pageRecipeItem.allIds)
-  console.log(store1.pageRecipeItem.byId)
+  console.log(store1.recipes.byId)
 
 });
 

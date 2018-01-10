@@ -30,20 +30,46 @@ export const quitAddIngredient = () => ({type: 'QUIT_ADD_INGREDIENT'})
 
 export const toggleRecette = (idRow) => ({type: 'TOGGLE_RECETTE', idRow})
 
+export const chooseIngredientOrRecipe = (idRow, idIngOrRecp) => ({
+  type: 'CHOOSE_INGREDIENT_OR_RECIPE',
+  idRow,
+  idIngOrRecp
+})
 export const deleteRowIngredientRecipe = (idRow) => ({
     type: 'DELETE_ROW_INGREDIENT_RECIPE',
     idRow
 })
 
-
 export const addRow = () => ({type: 'ADD_ROW', idRow: shortid.generate()})
 
+export const updateFieldQuantity = (idRow, quantity) => ({
+  type: 'UPDATE_FIELD_QUANTITY',
+  idRow,
+  quantity
+})
 
+export const updateNameField = (name) => ({
+  type: 'UPDATE_NAME_FIELD',
+  name
+})
 
+export const quitAddRecipe = () => ({type: 'QUIT_ADD_RECIPE'})
 
+export const createNewRecipe = (name, rowsIng) =>{
 
+  let listIngredients = rowsIng.map((elem) => ({
+    id: elem.id,
+    isRecipe: elem.isSelected,
+    quantity: elem.quantity
+  }))
 
-
+  let newRecipe = {
+          id: shortid.generate(),
+          name: name,
+          listIngredients
+          };
+  return {type: 'CREATE_NEW_RECIPE', newRecipe}
+}
 
 
 

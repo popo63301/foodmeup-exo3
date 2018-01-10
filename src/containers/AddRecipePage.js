@@ -2,15 +2,39 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MenuBar from './MenuBar';
 import AddRecipeItem from './AddRecipeItem';
-import { getListIngredientsWithIds, getListRecipesWithIds } from '../selectors'
-import { addRow } from '../actions'
+import { getListIngredientsWithIds,
+  getListRecipesWithIds,
+  getBoolValidityQuantityField,
+  getListRowsNewRecipe } from '../selectors'
+import { addRow, updateNameField, quitAddRecipe, createNewRecipe } from '../actions'
 
 class addRecipePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {message: ""}
+  }
 
   componentDidMount() {
       document.title = "Nouvelle recette";
     }
 
+  componentWillUnmount() {
+    this.props.quitAddRecipe()
+  }
+
+  checkBeforeCreating() {
+    if (!this.props.nameRecipe) {
+      this.setState({message: "Donnez au moins un nom à votre recette :D"})
+    }else if (this.props.listRowsTable.length < 2) {
+      this.setState({message: "Il faut au minimum 2 ingrédients/recettes (sinon ce n'est pas une recette ;))"})
+    } else if (this.props.validityQuantityFields) {
+      this.setState({message: "Vérifiez les quantités de sorte que ce soit des nombres valides"})
+    } else {
+      this.setState({message: ""})
+      this.props.createNewRecipe(this.props.nameRecipe, this.props.listCompleteRows)
+      this.props.history.push('/')
+    }
+  }
   render() {
 
     let rowsTable = this.props.listRowsTable.map(
@@ -24,7 +48,7 @@ class addRecipePage extends Component {
     return (
       <div>
       <MenuBar />
-      Nom de la recette: <input type="text"/><br/>
+      Nom de la recette: <input type="text" onBlur={(e) => this.props.updateNameField(e.target.value)}/><br/>
 
       <table>
         <tbody>
@@ -33,8 +57,6 @@ class addRecipePage extends Component {
             <th>Ingrédient</th>
             <th>Recette</th>
             <th>Quantités (en g)</th>
-            <th>Allergènes</th>
-            <th>Coût</th>
             <th>Enlever</th>
           </tr>
 
@@ -43,7 +65,9 @@ class addRecipePage extends Component {
         </tbody>
       </table>
 
-      <button onClick={() => this.props.addRow()}>Add ingredients</button>
+      <button onClick={() => this.props.addRow()}>Add ingredients</button><br/>
+      <p style={{color:'red'}}>{this.state.message}</p>
+      <button onClick={() => this.checkBeforeCreating()}>test</button>
       </div>
     );
   }
@@ -52,11 +76,17 @@ class addRecipePage extends Component {
 const mapStateToProps = (state, props) => ({
   listIngredientWithId: getListIngredientsWithIds(state, props),
   listRecipeWithId: getListRecipesWithIds(state, props),
-  listRowsTable: state.pageRecipeItem.allIds
+  listRowsTable: state.pageRecipeItem.allIds,
+  listCompleteRows: getListRowsNewRecipe(state, props),
+  validityQuantityFields: getBoolValidityQuantityField(state, props),
+  nameRecipe: state.pageRecipeItem.general.name
 })
 
 const mapDispatchToProps = {
-  addRow
+  addRow,
+  updateNameField,
+  quitAddRecipe,
+  createNewRecipe
 }
 
 const AddRecipePage = connect(

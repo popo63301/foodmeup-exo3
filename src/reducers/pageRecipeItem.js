@@ -20,6 +20,18 @@ export function itemsById(state = initialStateById, action) {
     case 'ADD_ROW':
 
       return {...state, [action.idRow]: {idRow: action.idRow, isSelected:false}}
+
+    case 'CHOOSE_INGREDIENT_OR_RECIPE':
+      return {...state, [action.idRow]: {...state[action.idRow],
+            idIngOrRecp: action.idIngOrRecp}}
+
+    case 'UPDATE_FIELD_QUANTITY':
+      return {...state, [action.idRow]: {...state[action.idRow],
+            quantity: action.quantity}}
+
+    case 'QUIT_ADD_RECIPE':
+      return initialStateById
+
     default:
         return state
   }
@@ -40,7 +52,25 @@ export function itemsAllIds(state = initialStateAllIds, action) {
       let newArray = state.slice()
       newArray.push(action.idRow)
       return newArray
-      
+
+    case 'QUIT_ADD_RECIPE':
+      return initialStateAllIds
+
+    default:
+        return state
+  }
+}
+
+const init = {name: ''}
+
+export function general(state = init, action) {
+  switch (action.type) {
+    case 'UPDATE_NAME_FIELD':
+      return {...state, name: action.name}
+
+    case 'QUIT_ADD_RECIPE':
+      return init
+            
     default:
         return state
   }
@@ -48,7 +78,8 @@ export function itemsAllIds(state = initialStateAllIds, action) {
 
 const itemsReducer = combineReducers({
   byId: itemsById,
-  allIds: itemsAllIds
+  allIds: itemsAllIds,
+  general
 })
 
 export default itemsReducer
