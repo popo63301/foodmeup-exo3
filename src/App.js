@@ -26,7 +26,7 @@ let mock = {
       'jobz': {id:'jobz', name: 'salade de bananes',
           listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 5},
                 {id:'nitakoz', isRecipe: true, quantity: 2}],
-        poids: 9},
+        poids: 11},
         'nitakoz': {id:'nitakoz', name: 'sirop de glucose',
             listIngredients: [{id:'mikoke', isRecipe: false, quantity: 4}],
           poids: 4}

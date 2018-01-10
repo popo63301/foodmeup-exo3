@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import MenuBar from './MenuBar';
 import { getListIngredientsWithQuantity } from '../selectors';
 import { allergenesForRecipe } from '../selectors/allergene';
+import { getTotalCostForRecipe } from '../selectors/cout';
 
 class selectedRecipePAge extends Component {
 
   render() {
 
-    const { recipe, ingredtList, listAllergene } = this.props
+    const { recipe, ingredtList, listAllergene, totalCost } = this.props
 
     let ingrList = ingredtList.map((e, index) => <p key={index}>{e.name} et {e.poids} g</p>)
 
@@ -32,6 +33,7 @@ class selectedRecipePAge extends Component {
       Allergènes:
       {theallergList}<br/><br/>
       Poids total: {recipe.poids} g
+      Prix total: {totalCost.toFixed(2)} €
       </div>
     );
   }
@@ -40,7 +42,8 @@ class selectedRecipePAge extends Component {
 const mapStateToProps = (state, props) => ({
   recipe: state.recipes.byId[props.match.params.idRecipe],
   ingredtList: getListIngredientsWithQuantity(state, props),
-  listAllergene: allergenesForRecipe(state, props.match.params.idRecipe)
+  listAllergene: allergenesForRecipe(state, props.match.params.idRecipe),
+  totalCost: getTotalCostForRecipe(state, props.match.params.idRecipe)
 })
 
 const mapDispatchToProps = {

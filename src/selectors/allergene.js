@@ -38,8 +38,5 @@ export const getListAllAllergenesForRecipe = (state, idRecipe, list=[]) => {
 export const allergenesForRecipe = (state, idRecipe) => {
   let thelist = getListAllAllergenesForRecipe(state, idRecipe)
 
-  console.log("willl")
-  console.log(thelist)
-  console.log("willl")
   return reduction(thelist)
 }
