@@ -1,7 +1,8 @@
 # foodmeup-exo3
 
 
-SCREENSHOT
+## Screenshot:
+![Image](https://image.ibb.co/hrrBmm/mesrecettes.png)
 
 ## How to use :
 - Clone the repo
