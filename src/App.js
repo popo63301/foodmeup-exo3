@@ -40,14 +40,12 @@ let mock = {
   // }
 }
 
-console.log(mock.ingredients.byId[mock.ingredients.allIds[0]].id)
 let store = createStore(appStore, mock)
 
 // console.log(store.getState())
 
 store.subscribe(() => {
   let store1 = store.getState()
-  console.log(store1.pageRecipeItem)
 
 });
 
