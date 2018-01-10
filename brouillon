@@ -1,13 +1,17 @@
 Mise en page basique
 
-
 ->Coût total
-->Allergènes total
 
 méthodologie:
--trouver liste de tout les ingrédients, reduce une première fois, prendre tout les allergènes de chaque ingrédiens,
-et reduce une nouvelle fois
 -trouver liste de tout les ingrédients et chaque quantité associé, pour ensuite multiplier avec le prix de l'ingrédient
+
+------------
+
+Coût
+
+
+
+
 
 
 
