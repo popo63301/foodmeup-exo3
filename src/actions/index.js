@@ -12,7 +12,7 @@ export const addNewIngredient = (ingr) => {
           cost: ingr.cost,
           listAllergnes: listAllergnes
           };
-          
+
   console.log(newIngredient)
   return {type: 'ADD_NEW_INGREDIENT', newIngredient}
 }
@@ -65,11 +65,17 @@ export const createNewRecipe = (name, rowsIng) =>{
     quantity: elem.quantity
   }))
 
+  let arrayPoids = rowsIng.map((e) => parseInt(e.quantity))
+
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
   let newRecipe = {
           id: shortid.generate(),
           name: name,
-          listIngredients
+          listIngredients,
+          poids: arrayPoids.reduce(reducer)
           };
+
   return {type: 'CREATE_NEW_RECIPE', newRecipe}
 }
 

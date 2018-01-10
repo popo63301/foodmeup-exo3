@@ -6,6 +6,7 @@ import AddIngredientPage from './containers/AddIngredientPage';
 import AddRecipePage from './containers/AddRecipePage';
 import RecipePage from './containers/RecipePage';
 import IngredientPage from './containers/IngredientPage';
+import SelectedRecipePage from './containers/SelectedRecipePage';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 let mock = {
@@ -19,21 +20,19 @@ let mock = {
   recipes: {
     byId: {
       'pm12xw': {id:'pm12xw', name: 'salade de concombre et de tomate',
-          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}]},
+          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}],
+          poids: 8},
       'jobz': {id:'jobz', name: 'salade de bananes',
-          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 4}]}
+          listIngredients: [{id:'x3dsmm', isRecipe: false, quantity: 4}, {id:'nfrecc', isRecipe: false, quantity: 5}],
+        poids: 9}
     },
     allIds: ['pm12xw', 'jobz']
   },
-  pageRecipeItem: {
-    byId: {
-      'tofol2': {id: 'tofol2' , isSelected: false, idIngOrRecp: 'x3dsmm'},
-      'tofol3': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'},
-      'tofol4': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'},
-      'tofol5': {id: 'tofol3' , isSelected: false, idIngOrRecp: 'x3dsmm'}
-    },
-    allIds: ['tofol2', 'tofol3', 'tofol4', 'tofol5']
-  }
+  // pageRecipeItem: {
+  //   byId: {
+  //   },
+  //   allIds: []
+  // }
 }
 
 let store = createStore(appStore, mock)
@@ -42,7 +41,7 @@ let store = createStore(appStore, mock)
 
 store.subscribe(() => {
   let store1 = store.getState()
-  console.log(store1.ingredients.byId)
+  console.log(store1.recipes.byId)
 
 });
 
@@ -56,6 +55,7 @@ class App extends Component {
             <Route path="/ingredient" component={IngredientPage} />
             <Route path="/add_ingredient" component={AddIngredientPage} />
             <Route path="/add_recipe" component={AddRecipePage} />
+            <Route path="/recipe/:idRecipe" component={SelectedRecipePage} />
           </div>
         </BrowserRouter>
       </Provider>

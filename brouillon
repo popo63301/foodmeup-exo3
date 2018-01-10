@@ -1,8 +1,6 @@
-Page Recette spécifique
-
-
-/////
 Mise en page basique
+
+
 ->Coût total
 ->Allergènes total
 
@@ -11,12 +9,19 @@ méthodologie:
 et reduce une nouvelle fois
 -trouver liste de tout les ingrédients et chaque quantité associé, pour ensuite multiplier avec le prix de l'ingrédient
 
+
+
+
+
+
+///////
+diviser les fichiers containers dans components aussi
 ///////
 test unitaire
-test UI (https://medium.com/netscape/testing-a-react-redux-app-using-jest-and-enzyme-b349324803a9)
 ///////
 CSS: Material UI? ou Bootstrap :D
 ///////
-faire un bon README
+faire un bon README:
+petit screenshot du projet
 ///////
-supprimer le brouillon
+supprimer les brouillons

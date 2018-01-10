@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class recipeItem extends Component {
 
   render() {
 
     return (
-      <div>{this.props.recipeName}
+      <div>
+      <Link to={`/recipe/${this.props.recipeId}`}>
+      {this.props.recipeName}
+      </Link>
       </div>
     );
   }
