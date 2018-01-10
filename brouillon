@@ -1,0 +1,38 @@
+Créer un ingrédient:
+
+Nom
+coût
+allergène
+
+/////
+Créer une recette (+ possibilité de créer à partir d'autres recettes)
+
+Nom
+Sélectionner une recette (checkbox pour savoir si c'est une recette,sinon ingrédient et on a un scroll adapté)
+Quantité
+Allergènes (qui vont être donné pour nous)
+Coût (qui va être calculer)
+
+Prévisualiser le coût en direct?
+Prévisualiser les allergènes (qui vont être donné pour nous)
+
+/////
+Modifier:
+Ouvrir une page Créer avec un id correspondant à la recette
+(donc si y a pas de id, c'est que c'est nouveau)
+
+/////
+Page Recette spécifique (avec possibilité après de modifier la recette - simple link)
+Mise en page basique
+
+///////
+test unitaire
+test UI
+///////
+comprendre Enzyme?
+///////
+CSS: Material UI? ou Bootstrap :D
+///////
+faire un bon README
+///////
+supprimer le brouillon

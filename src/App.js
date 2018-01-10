@@ -8,7 +8,21 @@ import RecipePage from './containers/RecipePage';
 import IngredientPage from './containers/IngredientPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-let mock = {}
+let mock = {
+  ingredients: {
+    byId: {
+      'x3dsmm': {id: "x3dsmm", name: "concombre"},
+      'nfrecc': {id: "nfrecc", name: "tomate"}
+    },
+    allIds: ['x3dsmm', 'nfrecc']
+  },
+  recipes: {
+    byId: {
+      'pm12xw': {id:'pm12xw', name: 'salade de concombre'}
+    },
+    allIds: ['pm12xw']
+  }
+}
 
 let store = createStore(appStore, mock)
 
@@ -37,5 +51,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
