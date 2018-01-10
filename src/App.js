@@ -12,7 +12,7 @@ let mock = {
   ingredients: {
     byId: {
       'x3dsmm': {id: "x3dsmm", name: "concombre"},
-      'nfrecc': {id: "nfrecc", name: "tomate"}
+      'nfrecc': {id: "nfrecc", name: "tomate", listAllergnes:["toto", "bobo", "jojo"]}
     },
     allIds: ['x3dsmm', 'nfrecc']
   },

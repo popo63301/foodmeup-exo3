@@ -1,9 +1,17 @@
+var shortid = require('shortid');
+
 export const addFieldAllergene = () => ({type: 'ADD_FIELD_ALLERGENE'})
 
 export const addNewIngredient = (ingr) => {
 
-  console.log("BRAVO MORRAY")
-  let newIngredient;
+  let listAllergnes = ingr.allergenes.filter((elem) => elem !== '')
+  
+  let newIngredient = {
+          id: shortid.generate(),
+          name: ingr.name,
+          cost: ingr.cost,
+          listAllergnes: listAllergnes
+          };
   return {type: 'ADD_NEW_INGREDIENT', newIngredient}
 }
 

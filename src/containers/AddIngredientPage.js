@@ -33,7 +33,7 @@ class addIngredientPage extends Component {
       this.props.addNewIngredient(pageIngredient)
       this.props.history.push('/ingredient')
     }
-    
+
   }
   render() {
     const {
@@ -47,7 +47,6 @@ class addIngredientPage extends Component {
         <input
           type="text"
           key={index}
-          placeholder={index}
           onBlur={(e) => updateAllergeneIngredientPage(index, e.target.value)}/>)
 
     return (
@@ -56,7 +55,7 @@ class addIngredientPage extends Component {
       Nom* : <input
           type="text"
           onBlur={(e) => updateFieldIngredientPage('name', e.target.value)}/><br/>
-      Coût* : <input
+      Coût* (en € par g) : <input
           type="text"
           onBlur={(e) => updateFieldIngredientPage('cost', e.target.value)}/><br/>
       Allergènes : {listAllergnes}<br/>
