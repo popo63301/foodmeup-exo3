@@ -14,9 +14,9 @@ let mock = {
     byId: {
       'x3dsmm': {id: "x3dsmm", name: "concombre", cost: 0.2, listAllergnes:["bggg", "jojo"]},
       'nfrecc': {id: "nfrecc", name: "tomate", cost: 0.45, listAllergnes:["toto", "bobo", "jojo"]},
-      'mikoke': {id: "mikoke", name: "tomate", cost: 0.45, listAllergnes:["glucose"]}
+      'mikoke': {id: "mikoke", name: "sucre", cost: 0.45, listAllergnes:["glucose"]}
     },
-    allIds: ['x3dsmm', 'nfrecc']
+    allIds: ['x3dsmm', 'nfrecc', 'mikoke']
   },
   recipes: {
     byId: {
@@ -40,13 +40,14 @@ let mock = {
   // }
 }
 
+console.log(mock.ingredients.byId[mock.ingredients.allIds[0]].id)
 let store = createStore(appStore, mock)
 
 // console.log(store.getState())
 
 store.subscribe(() => {
   let store1 = store.getState()
-  console.log(store1.recipes.byId)
+  console.log(store1.pageRecipeItem)
 
 });
 

@@ -21,7 +21,8 @@ export const getListAllRecipes = (state, props) => {
 }
 
 export const getListIngredientsWithQuantity = (state, props) => {
-  return state.recipes.byId[props.match.params.idRecipe].listIngredients.map((e) => (
-    {poids: e.quantity, name: e.isRecipe? state.recipes.byId[e.id].name : state.ingredients.byId[e.id].name}
-  ))
+
+  return state.recipes.byId[props.match.params.idRecipe].listIngredients.map((e) => {
+    return {poids: e.quantity, name: e.isRecipe? state.recipes.byId[e.id].name : state.ingredients.byId[e.id].name}
+  })
 }

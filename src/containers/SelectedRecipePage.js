@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
-import MenuBar from './MenuBar';
+import MenuBar from '../components/MenuBar';
 import { getListIngredientsWithQuantity } from '../selectors';
 import { allergenesForRecipe } from '../selectors/allergene';
 import { getTotalCostForRecipe } from '../selectors/cout';
@@ -11,7 +12,7 @@ class selectedRecipePAge extends Component {
 
     const { recipe, ingredtList, listAllergene, totalCost } = this.props
 
-    let ingrList = ingredtList.map((e, index) => <p key={index}>{e.name} et {e.poids} g</p>)
+    let ingrList = ingredtList.map((e, index) => <p key={index}>{e.name}, {e.poids} g</p>)
 
     // let allergList= listAllergene.map((e, index) => <p key={index}>{e}</p>)
 
@@ -26,14 +27,14 @@ class selectedRecipePAge extends Component {
 
     return (
       <div>
-      <MenuBar />
-      Nom de la recette: {recipe.name}<br/>
-      Ingrédients: <br/>
+      <MenuBar /><br/><br/>
+
+      <div className="titleRecipe">{recipe.name}</div><br/>
+      <div className="ingredientTitle">Ingrédients:</div> <br/>
       {ingrList}<br/><br/>
-      Allergènes:
-      {theallergList}<br/><br/>
-      Poids total: {recipe.poids} g
-      Prix total: {totalCost.toFixed(2)} €
+      <span className="ingredientTitle">Allergènes:</span> {theallergList}<br/><br/>
+      <span className="ingredientTitle">Poids total:</span>  {recipe.poids} g<br/>
+      <span className="ingredientTitle">Prix total:</span>  {totalCost.toFixed(2)} €
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
-import MenuBar from './MenuBar';
+import MenuBar from '../components/MenuBar';
 import RecipeItem from './RecipeItem';
 import { Link } from 'react-router-dom';
 import { getListAllRecipes } from '../selectors';
@@ -28,13 +29,13 @@ class recipePage extends Component {
 
       return (
         <div>
-        <MenuBar />
-
+        <MenuBar /><br/><br/>
+        <div className="mesRecettesTitle">Mes recettes 🍱</div><br/>
         <input type="text"
         placeholder="Chercher une recette"
         onKeyUp={(e) => this.setState({search:e.target.value})} />
 
-        <Link to="/add_recipe"><button>Créer une recette</button></Link>
+        <Link to="/add_recipe" className="buttonAddRecipe"><button>Créer une recette</button></Link>
         {listRecipes}
         </div>
       );

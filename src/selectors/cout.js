@@ -1,6 +1,6 @@
 export const getTotalCostForRecipe = (state, idRecipe, totalcounter=0) => {
   let listIngredientOfRecipe = state.recipes.byId[idRecipe].listIngredients
-  
+
   for (let elem of listIngredientOfRecipe) {
     if (!elem.isRecipe) {
       totalcounter = totalcounter + elem.quantity*state.ingredients.byId[elem.id].cost
@@ -9,9 +9,7 @@ export const getTotalCostForRecipe = (state, idRecipe, totalcounter=0) => {
       let factor = state.recipes.byId[elem.id].poids
 
       factor = factor === 0 ? 1 : factor
-
-      // console.log(totalcounter)
-      // console.log(elem.quantity*getTotalCostForRecipe(state, elem.id)/factor)
+      
       totalcounter = totalcounter + elem.quantity*getTotalCostForRecipe(state, elem.id)/factor
     }
   }

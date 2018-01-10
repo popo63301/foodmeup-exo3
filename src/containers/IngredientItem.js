@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
 
 class ingredientItem extends Component {
@@ -16,7 +17,7 @@ class ingredientItem extends Component {
       listAllergnesItem = ''
     }
     return (
-      <div>{name} - {cost}€/g
+      <div className="itemIngredient">{name} - {cost}€/g
       {listAllergnesItem  ? <p>allergène(s): {listAllergnesItem}</p> : ''}
       </div>
     );

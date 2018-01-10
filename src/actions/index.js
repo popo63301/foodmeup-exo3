@@ -13,7 +13,6 @@ export const addNewIngredient = (ingr) => {
           listAllergnes: listAllergnes
           };
 
-  console.log(newIngredient)
   return {type: 'ADD_NEW_INGREDIENT', newIngredient}
 }
 
@@ -42,7 +41,7 @@ export const deleteRowIngredientRecipe = (idRow) => ({
     idRow
 })
 
-export const addRow = () => ({type: 'ADD_ROW', idRow: shortid.generate()})
+export const addRow = (firstIng) => ({type: 'ADD_ROW', idRow: shortid.generate(), firstIng})
 
 export const updateFieldQuantity = (idRow, quantity) => ({
   type: 'UPDATE_FIELD_QUANTITY',
@@ -58,9 +57,8 @@ export const updateNameField = (name) => ({
 export const quitAddRecipe = () => ({type: 'QUIT_ADD_RECIPE'})
 
 export const createNewRecipe = (name, rowsIng) =>{
-
   let listIngredients = rowsIng.map((elem) => ({
-    id: elem.id,
+    id: elem.idIngOrRecp,
     isRecipe: elem.isSelected,
     quantity: elem.quantity
   }))

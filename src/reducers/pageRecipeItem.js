@@ -19,7 +19,7 @@ export function itemsById(state = initialStateById, action) {
 
     case 'ADD_ROW':
 
-      return {...state, [action.idRow]: {idRow: action.idRow, isSelected:false}}
+      return {...state, [action.idRow]: {idRow: action.idRow, isSelected:false, idIngOrRecp: action.firstIng}}
 
     case 'CHOOSE_INGREDIENT_OR_RECIPE':
       return {...state, [action.idRow]: {...state[action.idRow],
@@ -70,7 +70,7 @@ export function general(state = init, action) {
 
     case 'QUIT_ADD_RECIPE':
       return init
-            
+
     default:
         return state
   }

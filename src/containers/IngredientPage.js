@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
-import MenuBar from './MenuBar';
+import MenuBar from '../components/MenuBar';
 import IngredientItem from './IngredientItem';
 import { Link } from 'react-router-dom';
 
@@ -15,9 +16,11 @@ class ingredientPage extends Component {
     const listIngredients = ingredientIds.map((elem, index) => <IngredientItem key={index} ingredientId={elem}/>)
     return (
       <div>
-      <MenuBar />
-      <Link to="/add_ingredient"><button>Créer un ingrédient</button></Link>
+      <MenuBar /><br/><br/>
+      <Link to="/add_ingredient"><button>Créer un ingrédient</button></Link><br/><br/>
+      <div className="containerIngredients">
       {listIngredients}
+      </div>
       </div>
     );
   }

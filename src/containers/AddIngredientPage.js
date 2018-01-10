@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
-import MenuBar from './MenuBar';
+import MenuBar from '../components/MenuBar';
 import { addFieldAllergene,
   updateFieldIngredientPage,
   updateAllergeneIngredientPage,
@@ -50,7 +51,8 @@ class addIngredientPage extends Component {
 
     return (
       <div>
-      <MenuBar />
+      <MenuBar /><br/><br/>
+
       Nom* : <input
           type="text"
           onBlur={(e) => updateFieldIngredientPage('name', e.target.value)}/><br/>
@@ -66,8 +68,6 @@ class addIngredientPage extends Component {
 
       <br/>
       * Obligatoire
-
-      <button onClick={() => this.checkField()}>tesst</button>
       </div>
     );
   }

@@ -1,31 +1,9 @@
-Mise en page basique
-
-->Coût total
-
-méthodologie:
--trouver liste de tout les ingrédients et chaque quantité associé, pour ensuite multiplier avec le prix de l'ingrédient
-
-------------
-
-Coût
-
-
-
-
-
-
-Ajouter une recette pour tester et c'est bon
-
-
-
-///////
-diviser les fichiers containers dans components aussi
-///////
-test unitaire
-///////
 CSS: Material UI? ou Bootstrap :D
 ///////
 faire un bon README:
 petit screenshot du projet
+run the test
+///////
+tester sur l'autre ordi
 ///////
 supprimer les brouillons

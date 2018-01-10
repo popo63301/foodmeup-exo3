@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../style.css';
 import { connect } from 'react-redux';
-import MenuBar from './MenuBar';
+import MenuBar from '../components/MenuBar';
 import AddRecipeItem from './AddRecipeItem';
 import { getListIngredientsWithIds,
   getListRecipesWithIds,
@@ -15,9 +16,9 @@ class addRecipePage extends Component {
   }
 
   componentWillMount() {
-    this.props.addRow()
+    this.props.addRow(this.props.firstIng)
   }
-  
+
   componentDidMount() {
       document.title = "Nouvelle recette";
     }
@@ -51,7 +52,7 @@ class addRecipePage extends Component {
     )
     return (
       <div>
-      <MenuBar />
+      <MenuBar /><br/><br/>
       Nom de la recette: <input type="text" onBlur={(e) => this.props.updateNameField(e.target.value)}/><br/>
 
       <table>
@@ -69,7 +70,7 @@ class addRecipePage extends Component {
         </tbody>
       </table>
 
-      <button onClick={() => this.props.addRow()}>Add ingredients</button><br/>
+      <button onClick={() => this.props.addRow(this.props.firstIng)}>Add ingredients</button><br/>
       <p style={{color:'red'}}>{this.state.message}</p>
       <button onClick={() => this.checkBeforeCreating()}>test</button>
       </div>
@@ -83,7 +84,8 @@ const mapStateToProps = (state, props) => ({
   listRowsTable: state.pageRecipeItem.allIds,
   listCompleteRows: getListRowsNewRecipe(state, props),
   validityQuantityFields: getBoolValidityQuantityField(state, props),
-  nameRecipe: state.pageRecipeItem.general.name
+  nameRecipe: state.pageRecipeItem.general.name,
+  firstIng: state.ingredients.byId[state.ingredients.allIds[0]].id || ''
 })
 
 const mapDispatchToProps = {

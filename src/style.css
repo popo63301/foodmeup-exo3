@@ -1,0 +1,50 @@
+body {
+  font-family: roboto;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.menuBarContainer {
+  width: 100%;
+  font-size: 20px;
+  background-color: #7FDBFF;
+  text-align: right;
+}
+
+.invisibleSpan{
+  visibility: hidden;
+}
+
+.buttonAddRecipe{
+  float: right;
+}
+
+.mesRecettesTitle{
+  text-align: center;
+  font-size: 40px;
+}
+
+.recetteItem{
+  text-align: center;
+  font-size: 20px;
+}
+
+.containerIngredients{
+  padding-left: 30px
+}
+
+.itemIngredient{
+  border-style: solid;
+  border-width: 1px;
+}
+
+.titleRecipe{
+  font-size: 34px
+}
+
+.ingredientTitle{
+  font-weight: bold;
+}
