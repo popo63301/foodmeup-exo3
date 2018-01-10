@@ -1,13 +1,39 @@
 Créer une recette (+ possibilité de créer à partir d'autres recettes)
 
-Nom
-Sélectionner une recette (checkbox pour savoir si c'est une recette,sinon ingrédient et on a un scroll adapté)
-Quantité
-Allergènes (qui vont être donné pour nous)
-Coût (qui va être calculer)
+Nom de la recette
 
-Prévisualiser le coût en direct?
+(tableau)
+
+Prévisualiser le coût en direct? (pour chaque row et totale aussi)
 Prévisualiser les allergènes (qui vont être donné pour nous)
+
+
+------------
+Add Recipe Item:
+
+<th>Quantités (en g)</th>
+input
+
+<th>Coût</th>
+BUT: trouver un coefficient pour ensuite multiplier la quantité avec le coût
+selector aussi, ou plutot derived data? (reselect?)
+if NaN => (quantité invalide)
+
+allergene:
+->en fonction de ma sélection on change les allergenes
+init:
+soit ce que j'ai déjà pris auparavant,
+soit premier ing ou recette,
+soit rien
+
+
+
+
+
+
+--------
+
+
 
 /////
 Modifier:
@@ -20,7 +46,7 @@ Mise en page basique
 
 ///////
 test unitaire
-test UI
+test UI (https://medium.com/netscape/testing-a-react-redux-app-using-jest-and-enzyme-b349324803a9)
 ///////
 CSS: Material UI? ou Bootstrap :D
 ///////

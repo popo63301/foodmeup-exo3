@@ -1,0 +1,14 @@
+Allergene
+
+
+SELECTOR (donne liste des allergenes):
+->en fonction de ma sélection on change les allergenes
+init:
+soit ce que j'ai déjà pris auparavant,
+soit premier ing,
+soit rien
+->METTRE LA FONCTION MAGIQUE
+
+
+FONCTION MAGIQUE:
+->fonction qui va prendre récursivement les allergenes dans une meme liste

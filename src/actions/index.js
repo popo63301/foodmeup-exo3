@@ -5,7 +5,7 @@ export const addFieldAllergene = () => ({type: 'ADD_FIELD_ALLERGENE'})
 export const addNewIngredient = (ingr) => {
 
   let listAllergnes = ingr.allergenes.filter((elem) => elem !== '')
-  
+
   let newIngredient = {
           id: shortid.generate(),
           name: ingr.name,
@@ -24,3 +24,33 @@ export const updateAllergeneIngredientPage = (index, value) => {
 }
 
 export const quitAddIngredient = () => ({type: 'QUIT_ADD_INGREDIENT'})
+
+/////////////////////////////////////////////////
+
+
+export const toggleRecette = (idRow) => ({type: 'TOGGLE_RECETTE', idRow})
+
+export const deleteRowIngredientRecipe = (idRow) => ({
+    type: 'DELETE_ROW_INGREDIENT_RECIPE',
+    idRow
+})
+
+
+export const addRow = () => ({type: 'ADD_ROW', idRow: shortid.generate()})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////
