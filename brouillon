@@ -1,10 +1,20 @@
 Créer un ingrédient:
 
-Nom
-coût
-allergène
+Action:
+->ajouter ingrédient:
+si un allergène est vide, ne pas le considérer)
+
+
+
+
+
+
+
 
 /////
+Afficher ingrédient correctement (ce qu'on a besoin)
+
+////
 Créer une recette (+ possibilité de créer à partir d'autres recettes)
 
 Nom
@@ -28,8 +38,6 @@ Mise en page basique
 ///////
 test unitaire
 test UI
-///////
-comprendre Enzyme?
 ///////
 CSS: Material UI? ou Bootstrap :D
 ///////

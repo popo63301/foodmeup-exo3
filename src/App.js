@@ -31,7 +31,7 @@ console.log(store.getState())
 store.subscribe(() => {
   let store1 = store.getState()
 
-  console.log(store1)
+  console.log(store1.pageIngredient)
 
 });
 
