@@ -47,6 +47,8 @@ let store = createStore(appStore, mock)
 store.subscribe(() => {
   let store1 = store.getState()
 
+  // console.log(store1.recipes.byId)
+
 });
 
 class App extends Component {

@@ -29,7 +29,8 @@ export const quitAddIngredient = () => ({type: 'QUIT_ADD_INGREDIENT'})
 /////////////////////////////////////////////////
 
 
-export const toggleRecette = (idRow) => ({type: 'TOGGLE_RECETTE', idRow})
+export const toggleRecette = (idRow, firstRecette, firstIng) => ({
+  type: 'TOGGLE_RECETTE', idRow, firstRecette, firstIng})
 
 export const chooseIngredientOrRecipe = (idRow, idIngOrRecp) => ({
   type: 'CHOOSE_INGREDIENT_OR_RECIPE',

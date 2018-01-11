@@ -15,7 +15,9 @@ class addRecipeItem extends Component {
         idRow,
         deleteRowIngredientRecipe,
         chooseIngredientOrRecipe,
-        updateFieldQuantity} = this.props
+        updateFieldQuantity,
+        firstRecette,
+        firstIng} = this.props
 
     let selectionIngredient = (
       <select onChange={(e) => chooseIngredientOrRecipe(idRow, e.target.value)}>
@@ -37,7 +39,7 @@ class addRecipeItem extends Component {
 
     return (
       <tr>
-        <td> <input type="checkbox" onClick={() => toggleRecette(idRow)}/> </td>
+        <td> <input type="checkbox" onClick={() => toggleRecette(idRow, firstRecette, firstIng)}/> </td>
         <td>{isRecette ? "": selectionIngredient}</td>
         <td>{isRecette ? selectionRecipe : ""}</td>
         <td> <input type="text" onBlur={(e) => updateFieldQuantity(idRow,e.target.value)}/> </td>
@@ -49,6 +51,8 @@ class addRecipeItem extends Component {
 
 const mapStateToProps = (state, props) => ({
   isRecette: state.pageRecipeItem.byId[props.idRow].isSelected,
+  firstRecette: state.recipes.byId[state.recipes.allIds[0]].id,
+  firstIng: state.ingredients.byId[state.ingredients.allIds[0]].id || ''
   })
 
 const mapDispatchToProps = {

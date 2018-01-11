@@ -9,7 +9,9 @@ export function itemsById(state = initialStateById, action) {
       return { ...state,
         [action.idRow]: {
           ...state[action.idRow],
-          isSelected: state[action.idRow].isSelected ? false : true  }
+          isSelected: state[action.idRow].isSelected ? false : true,
+          idIngOrRecp: state[action.idRow].isSelected ? action.firstIng: action.firstRecette
+        }
         }
     case 'DELETE_ROW_INGREDIENT_RECIPE':
       let newObject = Object.assign({}, state)
