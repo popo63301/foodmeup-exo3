@@ -72,7 +72,7 @@ class addRecipePage extends Component {
 
       <button onClick={() => this.props.addRow(this.props.firstIng)}>Add ingredients</button><br/>
       <p style={{color:'red'}}>{this.state.message}</p>
-      <button onClick={() => this.checkBeforeCreating()}>test</button>
+      <button onClick={() => this.checkBeforeCreating()}>Ajouter cette recette</button>
       </div>
     );
   }
